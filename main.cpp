@@ -50,9 +50,9 @@ void trocar(struct Pessoa vetor[], int de, int para)
     vetor[para] = temp;
 }
 
-void ordenar(struct Pessoa vetor[]){
-    for (int i = 0; i < QTD-1; i++) {
-        for (int j = 0; j < QTD - i - 1; j++) {
+void ordenar(struct Pessoa vetor[], int size) {
+    for (int i = 0; i < size-1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
             if (vetor[j].idade > vetor[j+1].idade) {
                 trocar(vetor, j, j+1);
             } else if (vetor[j].idade == vetor[j+1].idade) { // Se empatar no criterio de idade, testa o criterio de nome
@@ -73,9 +73,9 @@ int main()
             { "Hanae", 20 }
     };
 
-    ordenar(pessoas);
+    ordenar(pessoas, 4);
 
-    for (int i = 0; i < QTD; i++) {
+    for (int i = 0; i < 4; i++) {
         cout << pessoas[i].name << " " << pessoas[i].idade << endl;
     }
 }
